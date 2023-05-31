@@ -30,7 +30,7 @@ public class InsuranceController {
         }
     }*/
 
-    @GetMapping("/{registrationNumber}")
+    @GetMapping("/vehicle/{registrationNumber}")
     public ResponseEntity<String> verifyVehicleInsuranceDetails(@PathVariable("registrationNumber") String registrationNumber) {
         Optional<Insurance> optionalInsurance = verificationService.getInsuranceByRegistrationNumber(registrationNumber);
         if (optionalInsurance.isPresent() && optionalInsurance.get().getPolicyEndDate().isAfter(LocalDate.now()))

@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 
 @RestController
-@RequestMapping("/api/v1/delivery-service")
+@RequestMapping("/api/v1/serviceStation/")
 public class DeliveryController {
 
     @Autowired
     private DeliveryService deliveryService;
 
-    @GetMapping("/service-record/{serviceRecordID}")
+    @GetMapping("/delivery-service/service-record/{serviceRecordID}")
     public ResponseEntity<String> getDeliveryDateBasedOnServiceRecord(@PathVariable("serviceRecordID")
                                                                           Long serviceRecordID) {
         // Implement the logic to calculate the delivery date based on service requirements
@@ -23,7 +23,7 @@ public class DeliveryController {
     }
 
 
-    @GetMapping("/vehicle/{vehicle}")
+    @GetMapping("/delivery-service/vehicle/{vehicle}")
     public ResponseEntity<String> getDeliveryDateBasedOnVehicleRegNum(@PathVariable("registrationNumber")
                                                                           String registrationNumber) {
         // Implement the logic to calculate the delivery date based on service requirements

@@ -1,18 +1,10 @@
 package com.example.vehicleServiceStation.controller;
 
-import com.example.vehicleServiceStation.exceptions.DuplicateVehicleException;
-import com.example.vehicleServiceStation.helper.ServiceStationHelper;
-import com.example.vehicleServiceStation.model.ServiceRecord;
 import com.example.vehicleServiceStation.model.VehicleRequest;
-import com.example.vehicleServiceStation.service.DeliveryService;
 import com.example.vehicleServiceStation.service.ServiceStationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
-import java.util.List;
 
 
 @RestController

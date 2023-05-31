@@ -13,7 +13,7 @@ import java.util.List;
 public interface ServiceRecordRepository extends JpaRepository<ServiceRecord,Long> {
 
     ServiceRecord getServiceRequestById(Long serviceRequestId);
-    List<ServiceRecord> findByVehicleID(Long vehicle_id);
+    //List<ServiceRecord> findByVehicleID(Long vehicleId);
 
  /*   //@Query("select sr from SERVICE_RECORD sr JOIN VEHICLE v ON sr.vehicle_id=v.id WHERE v.registration_number = :registration_number")
 

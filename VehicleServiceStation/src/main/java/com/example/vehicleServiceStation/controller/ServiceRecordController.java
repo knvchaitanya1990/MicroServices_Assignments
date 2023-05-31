@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/service-records")
+@RequestMapping("/api/v1/serviceStation/")
 public class ServiceRecordController {
 
     @Autowired
     private ServiceRecordService serviceRecordService;
 
-    @GetMapping("/vehicle/{registrationNumber}")
+    @GetMapping("/service-records/vehicle/{registrationNumber}")
     public ResponseEntity<List<ServiceRecord>>
     getServiceHistoryByVehicleRegistrationNumber(@PathVariable("registrationNumber")
                                                  String registrationNumber) {
@@ -27,7 +27,7 @@ public class ServiceRecordController {
 
     }
 
-    @GetMapping("/serviceRecord-status/{serviceRecordId}")
+    @GetMapping("/service-record/status/{serviceRecordId}")
     public Optional<ServiceRecord>
     getServiceRecordDetails(@PathVariable("serviceRecordId") Long serviceRecordId) {
         return serviceRecordService.findByServiceRecordId(serviceRecordId);

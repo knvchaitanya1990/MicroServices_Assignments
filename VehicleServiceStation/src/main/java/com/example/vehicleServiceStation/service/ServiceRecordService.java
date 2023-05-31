@@ -22,15 +22,15 @@ public class ServiceRecordService {
     public ResponseEntity<List<ServiceRecord>> findByVehicleRegistrationNumber(String registrationNumber) {
 
         Vehicle vehicle = vehicleRecordRepository.findByVehicleRegistrationNumber(registrationNumber);
-        if(vehicle == null){
+        if(vehicle == null) {
             return ResponseEntity.notFound().build();
         }
+        /*List<ServiceRecord> serviceRecords = serviceRecordRepository.findByVehicleID(vehicle.getId());
+        return ResponseEntity.ok(serviceRecords);*/
 
+        return ResponseEntity.notFound().build();
 
-        List<ServiceRecord> serviceRecords = serviceRecordRepository.findByVehicleID(vehicle.getId());
-       return ResponseEntity.ok(serviceRecords);
     }
-
     public Optional<ServiceRecord> findByServiceRecordId(Long serviceRecordId) {
         return serviceRecordRepository.findById(serviceRecordId);
     }

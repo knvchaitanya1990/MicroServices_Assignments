@@ -19,14 +19,14 @@ CREATE TABLE IF NOT EXISTS VEHICLE(
 
 CREATE TABLE IF NOT EXISTS SERVICE_RECORD(
   id INT AUTO_INCREMENT  PRIMARY KEY,
-  vehicle_id INT,
+  vehicleId INT,
   accepted BOOLEAN,
   estimatedCost DOUBLE,
   estimateDeliveryDay DATE,
   service_acceptedDate DATE,
   totalCost DOUBLE,
   serviceCompleted BOOLEAN,
-  FOREIGN KEY(VEHICLE_id) REFERENCES VEHICLE(id)
+  FOREIGN KEY(vehicleId) REFERENCES VEHICLE(id)
 );
 
 

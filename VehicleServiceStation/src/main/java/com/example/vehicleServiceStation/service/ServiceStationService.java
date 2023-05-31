@@ -60,10 +60,10 @@ public class ServiceStationService {
               if(!isCustomerPresent.isPresent())*/
                     customerRecordRepository.save(customer);
                     vehicle.setCustomer(customer);
-                    if (!vehicleRecordRepository.existsByRegistrationNumber(vehicle.getRegistrationNumber())) {
+                    Vehicle vehicleFound = vehicleRecordRepository.findByVehicleRegistrationNumber(vehicle.getRegistrationNumber());
+                    if(vehicleFound==null)
                         vehicleRecordRepository.save(vehicle);
                         // throw new DuplicateVehicleException("Vehicle with the same registration number already  exists");
-                    }
                     serviceRecord.setVehicle(vehicle);
                     // Save the service record
                     serviceRecordRepository.save(serviceRecord);

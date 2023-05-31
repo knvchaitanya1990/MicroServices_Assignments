@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 public class DeliveryService {
@@ -18,9 +19,10 @@ public class DeliveryService {
     private ServiceRecordRepository serviceRecordRepository;
 
     public LocalDate getDeliveryDateBasedOnServiceRecord(Long serviceRecordID) {
-       ServiceRecord serviceRecord = serviceRecordRepository.getServiceRequestById(serviceRecordID);
-       if(serviceRecord!=null){
-           return  serviceRecord.getEstimateDeliveryDay();
+       Optional<ServiceRecord> serviceRecord = serviceRecordRepository.findById(serviceRecordID);
+       if(serviceRecord.isPresent()){
+           return serviceRecord.get().getEstimateDeliveryDay();
+           //return  serviceRecord.getEstimateDeliveryDay();
        }
        else return LocalDate.now();
     }

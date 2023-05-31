@@ -19,7 +19,7 @@ public class ServiceRecord {
 
     //@ManyToOne(cascade = CascadeType.PERSIST)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vehicle_id")
+    @JoinColumn(name = "vehicleId")
     private Vehicle vehicle;
 
     private double estimatedCost;
